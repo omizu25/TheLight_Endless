@@ -38,8 +38,8 @@ const char *TEXT_NAME = "data/TEXT/Ranking.txt";	// テキスト名
 //==================================================
 namespace
 {
-int	s_nIdx;		// 矩形のインデックス
-int	s_nScore;	// スコア
+int	s_nIdxRanking;	// 矩形のインデックス
+int	s_nRanking;		// ランキング
 }// namespaceはここまで
 
 //--------------------------------------------------
@@ -51,7 +51,7 @@ void InitRanking(void)
 	D3DXVECTOR3 pos = D3DXVECTOR3(SCREEN_WIDTH * 0.68f, SCREEN_HEIGHT * 0.5f, 0.0f);
 
 	// 数の設定
-	s_nIdx = SetNumber(pos, size, GetColor(COLOR_WHITE), s_nScore, DigitNumber(s_nScore), false);
+	s_nIdxRanking = SetNumber(pos, size, GetColor(COLOR_WHITE), s_nRanking, DigitNumber(s_nRanking), false);
 }
 
 //--------------------------------------------------
@@ -60,7 +60,7 @@ void InitRanking(void)
 void UninitRanking(void)
 {
 	// 使うのを止める
-	StopUseRectangle(s_nIdx);
+	StopUseRectangle(s_nIdxRanking);
 }
 
 //--------------------------------------------------
@@ -85,7 +85,7 @@ void SetRanking(void)
 {
 	int aSave[MAX_RANKING + 1];
 
-	aSave[0] = s_nScore;
+	aSave[0] = s_nRanking;
 
 	// スコアの取得
 	aSave[MAX_RANKING] = GetScore();
@@ -113,10 +113,10 @@ void SetRanking(void)
 		}
 	}
 
-	s_nScore = aSave[0];
+	s_nRanking = aSave[0];
 
 	// 数の変更
-	s_nIdx = ChangeNumber(s_nIdx, s_nScore);
+	s_nIdxRanking = ChangeNumber(s_nIdxRanking, s_nRanking);
 }
 
 //--------------------------------------------------
@@ -131,7 +131,7 @@ void LoadRanking(void)
 
 	if (pFile != NULL)
 	{// ファイルが開いた場合
-		fscanf(pFile, "%d", &s_nScore);
+		fscanf(pFile, "%d", &s_nRanking);
 
 		// ファイルを閉じる
 		fclose(pFile);
@@ -140,7 +140,7 @@ void LoadRanking(void)
 	{// ファイルが開かない場合
 		assert(false);
 
-		s_nScore = 0;
+		s_nRanking = 0;
 	}
 }
 
@@ -156,7 +156,7 @@ void SaveRanking(void)
 
 	if (pFile != NULL)
 	{// ファイルが開いた場合
-		fprintf(pFile, "%d\n\n", s_nScore);
+		fprintf(pFile, "%d\n\n", s_nRanking);
 	
 		// ファイルを閉じる
 		fclose(pFile);

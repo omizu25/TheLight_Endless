@@ -37,8 +37,8 @@ const float	SCORE_HEIGHT = 150.0f;	// スコアの高さ
 //==================================================
 namespace
 {
-int	s_nIdx;		// 数の配列のインデックス
-int	s_nScore;	// スコア
+int	s_nIdxScore;	// 数の配列のインデックス
+int	s_nScore;		// スコア
 }// namespaceはここまで
 
 //--------------------------------------------------
@@ -67,9 +67,8 @@ void InitScore(void)
 		break;
 	}
 	
-
 	// 数の設定
-	s_nIdx = SetNumber(pos, size, GetColor(COLOR_WHITE), s_nScore, DigitNumber(s_nScore), false);
+	s_nIdxScore = SetNumber(pos, size, GetColor(COLOR_WHITE), s_nScore, DigitNumber(s_nScore), false);
 }
 
 //--------------------------------------------------
@@ -78,7 +77,7 @@ void InitScore(void)
 void UninitScore(void)
 {
 	// 使うのを止める
-	StopUseRectangle(s_nIdx);
+	StopUseRectangle(s_nIdxScore);
 }
 
 //--------------------------------------------------
@@ -104,7 +103,7 @@ void SetScore(int nScore)
 	s_nScore = nScore;
 
 	// 数の変更
-	s_nIdx = ChangeNumber(s_nIdx, s_nScore);
+	s_nIdxScore = ChangeNumber(s_nIdxScore, s_nScore);
 }
 
 //--------------------------------------------------
@@ -115,7 +114,7 @@ void AddScore(int nValue)
 	s_nScore += nValue;
 
 	// 数の変更
-	s_nIdx = ChangeNumber(s_nIdx, s_nScore);
+	s_nIdxScore = ChangeNumber(s_nIdxScore, s_nScore);
 }
 
 //--------------------------------------------------

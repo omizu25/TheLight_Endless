@@ -66,7 +66,7 @@ namespace
 Menu	s_aMenu[MAX_MENU];	// メニューの情報
 int		s_nIdxMenu;			// 選ばれているメニューの番号
 int		s_nIdxOption;		// 選ばれている選択肢の番号
-int		s_nTime;		// α値変更用の時間
+int		s_nTime;			// α値変更用の時間
 }// namespaceはここまで
 
 //==================================================

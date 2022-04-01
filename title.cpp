@@ -50,8 +50,7 @@ typedef enum
 //==================================================
 namespace
 {
-int	s_nIdxMoon;			// 背景の矩形のインデックス
-int	s_nIdx;				// 矩形のインデックス
+int	s_nIdxLogo;			// ロゴの矩形のインデックス
 int	s_nSelectMenu;		// 選ばれているメニュー
 int	s_nIdxMenu;			// メニューの配列のインデックス
 int	s_nIdxCursor;		// カーソルの配列のインデックス
@@ -97,13 +96,13 @@ void InitTitle(void)
 
 	{// ロゴ
 		// 矩形の設定
-		s_nIdx = SetRectangle(TEXTURE_TITLE_LOGO);
+		s_nIdxLogo = SetRectangle(TEXTURE_TITLE_LOGO);
 
 		D3DXVECTOR3 size = D3DXVECTOR3(TITLE_WIDTH, TITLE_HEIGHT, 0.0f);
 		D3DXVECTOR3 pos = D3DXVECTOR3(SCREEN_WIDTH * 0.275f, SCREEN_HEIGHT * 0.5f, 0.0f);
 
 		// 矩形の位置の設定
-		SetPosRectangle(s_nIdx, pos, size);
+		SetPosRectangle(s_nIdxLogo, pos, size);
 	}
 
 	{// メニュー
@@ -178,8 +177,7 @@ void UninitTitle(void)
 	UninitBG();
 
 	// 使うのを止める
-	StopUseRectangle(s_nIdxMoon);
-	StopUseRectangle(s_nIdx);
+	StopUseRectangle(s_nIdxLogo);
 }
 
 //--------------------------------------------------

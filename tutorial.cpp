@@ -34,8 +34,8 @@ const int	MAX_TIME = 900;	// タイムの最大値
 //==================================================
 namespace
 {
-int		s_nIdx;		// 背景の矩形のインデックス
-int		s_nTime;	// タイム
+int		s_nIdxTutorial;	// チュートリアルの矩形のインデックス
+int		s_nTime;		// タイム
 }// namespaceはここまで
 
  //--------------------------------------------------
@@ -59,13 +59,13 @@ void InitTutorial(void)
 	InitMoonBG();
 
 	// 矩形の設定
-	s_nIdx = SetRectangle(TEXTURE_TITLE_GamePopup);
+	s_nIdxTutorial = SetRectangle(TEXTURE_TITLE_GamePopup);
 
 	D3DXVECTOR3 pos = D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.5f, 0.0f);
 	D3DXVECTOR3 size = D3DXVECTOR3(SCREEN_WIDTH * 0.8f, SCREEN_HEIGHT * 0.8f, 0.0f);
 
 	// 矩形の位置の設定
-	SetPosRectangle(s_nIdx, pos, size);
+	SetPosRectangle(s_nIdxTutorial, pos, size);
 
 	s_nTime = 0;
 }
@@ -76,7 +76,7 @@ void InitTutorial(void)
 void UninitTutorial(void)
 {
 	// 使うのを止める
-	StopUseRectangle(s_nIdx);
+	StopUseRectangle(s_nIdxTutorial);
 
 	// ゲージの終了
 	UninitGauge();
