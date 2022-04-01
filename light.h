@@ -38,8 +38,8 @@ void DrawLight(void);
 int GetColorLight(int nNowLight);
 
 //--------------------------------------------------
-// ê≥â
+// ìöÇ¶
 //--------------------------------------------------
-void CorrectAnswerLight(void);
+void AnswerLight(void);
 
 #endif // !_LIGHT_H_

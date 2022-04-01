@@ -171,9 +171,9 @@ int GetColorLight(int nNowLight)
 }
 
 //--------------------------------------------------
-// ê≥â
+// ìöÇ¶
 //--------------------------------------------------
-void CorrectAnswerLight(void)
+void AnswerLight(void)
 {
 	for (int i = 0; i < MAX_LIGHT - 1; i++)
 	{

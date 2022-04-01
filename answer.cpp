@@ -92,8 +92,8 @@ void SetAnswer(int nNowLight)
 	{// 正解
 		s_bAnswer = true;
 
-		// 正解
-		CorrectAnswerLight();
+		// 答え
+		AnswerLight();
 
 		// スコアの加算
 		AddScore(1);
@@ -102,6 +102,9 @@ void SetAnswer(int nNowLight)
 	{// 不正解
 		// サウンドの再生
 		PlaySound(SOUND_LABEL_SE_MISS);
+
+		// 答え
+		AnswerLight();
 
 		if (GetScore() > 0)
 		{// スコアがある
